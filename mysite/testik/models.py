@@ -25,8 +25,8 @@ class Sertif(models.Model):
     title = models.TextField(max_length=50, verbose_name="Название")
     users = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name="Пользователь", related_name="SertifUser")
     blank = models.ForeignKey(Blank, on_delete=models.PROTECT, verbose_name="Бланк", related_name="BlankSertif")
-    date = models.DateTimeField(auto_now_add=True)
-    filled_sertif = models.ImageField(upload_to='serif/%Y/%m/%d', blank=True)
+    date = models.DateTimeField(auto_now_add=True, verbose_name="Дата")
+    filled_sertif = models.ImageField(upload_to='serif/%Y/%m/%d', blank=True, verbose_name="Заполненный сертификат")
 
     class Meta:
         ordering = ["-title"]

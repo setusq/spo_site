@@ -29,6 +29,7 @@ urlpatterns = [
     path('car/', include('mysite.car.urls')),  # подключение приложения
     path('helicopter/', include('mysite.helicopter.urls')),  # подключение приложения
     path('anketa/', include('mysite.anketa.urls')),  # подключение приложения
+    path('testik/', include('mysite.testik.urls')),
 
 
 

@@ -6,7 +6,7 @@ from django.urls import reverse
 def cfg_assets_root(request):
 
     if request.user.is_authenticated:
-        if request.user.is_superuser:
+        if request.user.groups.filter(name='Управляющий').exists():
             sidebar = [
 
                 {
@@ -33,6 +33,13 @@ def cfg_assets_root(request):
                         {'name': 'Модельная профессия', 'url': reverse('anketa:model_prof')},
                         {'name': 'Бланк', 'url': reverse('anketa:blank')},
                         {'name': 'Люди', 'url': reverse('anketa:human')},
+                    ]
+                },
+                                {
+                    'name': 'Сертификат',
+                    'color': 'text-success',
+                    'children': [
+                        {'name': 'Сертификат', 'url': reverse('testik:Sertif')},
                     ]
                 },
                 
